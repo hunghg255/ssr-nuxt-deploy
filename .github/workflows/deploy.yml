@@ -23,7 +23,11 @@ jobs:
           script: |
             export NVM_DIR=~/root/.nvm
             source ~/.nvm/nvm.sh
+            node -v
             cd /home/ssr-nuxt-deploy
             ls -la
             git pull
             node -v
+            npm install
+            npm run build
+            pm2 restart 1
