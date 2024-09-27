@@ -21,10 +21,9 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script_stop: true
           script: |
-            sudo npm cache clean -f
-            sudo npm install -g n
-            sudo n stable
-            node -v
+            echo ${{ secrets.PASSWORD }} | sudo -S sudo npm cache clean -f
+            echo ${{ secrets.PASSWORD }} | sudo -S sudo npm install -g n
+            echo ${{ secrets.PASSWORD }} | sudo -S sudo n stable
             cd /home/ssr-nuxt-deploy
             ls -la
             git pull
