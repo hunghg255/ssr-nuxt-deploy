@@ -21,8 +21,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script_stop: true
           script: |
-            export NVM_DIR=~/.nvm
-            source ~/root/.nvm/nvm.sh
+            export NVM_DIR=~/root/.nvm
+            source ~/.nvm/nvm.sh
             cd /home/ssr-nuxt-deploy
             ls -la
             git pull
