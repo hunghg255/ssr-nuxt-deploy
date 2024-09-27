@@ -32,5 +32,4 @@ jobs:
             cd /home/ssr-nuxt-deploy
             ls -la
             git pull
-            npm install
             node -v
