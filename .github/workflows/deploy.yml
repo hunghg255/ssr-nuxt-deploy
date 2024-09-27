@@ -21,9 +21,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script_stop: true
           script: |
-            echo ${{ secrets.PASSWORD }} | sudo -S sudo npm cache clean -f
-            echo ${{ secrets.PASSWORD }} | sudo -S sudo npm install -g n
-            echo ${{ secrets.PASSWORD }} | sudo -S sudo n stable
+            export NVM_DIR=~/root/.nvm
+            source ~/root/.nvm/nvm.sh
             cd /home/ssr-nuxt-deploy
             ls -la
             git pull
