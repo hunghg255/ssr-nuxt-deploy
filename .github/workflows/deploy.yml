@@ -13,14 +13,6 @@ jobs:
       contents: read
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '22'
-
       - name: Deploy
         uses: appleboy/ssh-action@master
         with:
@@ -29,9 +21,10 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script_stop: true
           script: |
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            npm --help
+            sudo npm cache clean -f
+            sudo npm install -g n
+            sudo n stable
+            node -v
             cd /home/ssr-nuxt-deploy
             ls -la
             git pull
